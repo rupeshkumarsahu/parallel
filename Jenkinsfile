@@ -15,6 +15,15 @@ pipeline {
                 }
             }
         }
+        parallel (
+            "Test": {
+                testFunc()
+            },
+            "Another One": {
+                echo 'Running Another One'
+                // Add your "Another One" steps here
+            }
+        )
     }
 
     post {
@@ -23,13 +32,3 @@ pipeline {
         }
     }
 }
-
-parallel (
-    "Test": {
-        testFunc()
-    },
-    "Another One": {
-        echo 'Running Another One'
-        // Add your "Another One" steps here
-    }
-)
