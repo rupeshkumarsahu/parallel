@@ -8,19 +8,23 @@ pipeline {
 
     stages {
         stage('Main Stage') {
-            steps {
-                script {
-                    parallel (
-                        "Test": {
-                            testFunc()
-                        },
-                        "Another One": {
-                            echo 'Running Another One'
-                            // Add your "Another One" steps here
-                        }
-                    )
-                }
-            }
+            echo 'This is main stage'
+            // steps {
+            //     script {
+            //         parallel (
+            //             "Test": {
+            //                 testFunc()
+            //             },
+            //             "Another One": {
+            //                 echo 'Running Another One'
+            //                 // Add your "Another One" steps here
+            //             }
+            //         )
+            //     }
+            // }
+        }
+        'run echo': {
+            echo 'running echo test123'
         }
     }
 }
