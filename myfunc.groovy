@@ -1,11 +1,9 @@
 // myFunctions.groovy
 
 echo 'Hello! World'
+// myfunc.groovy
 
-def greet(name) {
-    return "Hello, ${name}!"
-}
-
-def add(a, b) {
-    return a + b
-}
+return [
+    greet: { name -> "Hello, ${name}!" },
+    add: { a, b -> a + b }
+]
