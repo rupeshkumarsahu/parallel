@@ -1,34 +1,20 @@
-def testFunc() {
-    echo 'Running TestFunc'
-    // Add your TestFunc steps here
-}
+// Jenkinsfile
 
 pipeline {
     agent any
 
     stages {
-        stage('Main Stage') {
+        stage('Load Functions') {
             steps {
                 script {
-                    echo 'Running Main Stage'
-                    // Add your Main Stage steps here
+                    // Load the external functions from myFunctions.groovy
+                    def externalFunctions = load 'myfunc.groovy'
+                    
+                    // Call the functions from the external file
+                    echo externalFunctions.greet('John')
+                    echo "The sum of 5 and 3 is ${externalFunctions.add(5, 3)}"
                 }
             }
-        }
-        parallel (
-            "Test": {
-                testFunc()
-            },
-            "Another One": {
-                echo 'Running Another One'
-                // Add your "Another One" steps here
-            }
-        )
-    }
-
-    post {
-        always {
-            echo 'Post-build stage'
         }
     }
 }
