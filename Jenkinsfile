@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     // Load the external functions from myFunctions.groovy
-                    def externalFunctions = load 'myfunc.groovy'
+                    externalFunctions = load 'myfunc.groovy'
                     
                     // Call the functions from the external file
                     echo externalFunctions.greet('John')
