@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     def rootDir = pwd()
-                    def exampleModule = load "${rootDir}@script/myfunc.groovy "
+                    def exampleModule = load "/myfunc.groovy "
                     // Load the external functions from myFunctions.groovy
                     // externalFunctions = load 'myfunc.groovy'
                     
