@@ -1,5 +1,7 @@
 // myFunctions.groovy
 
+echo 'Hello! World'
+
 def greet(name) {
     return "Hello, ${name}!"
 }
